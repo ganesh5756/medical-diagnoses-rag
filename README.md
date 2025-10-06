@@ -58,21 +58,68 @@ The healthcare industry faces significant challenges:
 - Sufficient RAM for local LLM (recommended 8GB+)
 - Optional: GPU support for faster inference
 
-### Dependencies
+### Quick Setup
+
+1. **Clone and navigate to the repository**:
+   ```bash
+   git clone <repository-url>
+   cd medical-diagnoses-rag
+   ```
+
+2. **Create and activate virtual environment**:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Install llama-cpp-python** (choose based on your system):
+   ```bash
+   # For GPU support (CUDA)
+   CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --no-cache-dir
+
+   # For CPU only
+   CMAKE_ARGS="-DLLAMA_CUBLAS=off" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --no-cache-dir
+
+   # For Apple Silicon (Metal)
+   CMAKE_ARGS="-DLLAMA_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
+   ```
+
+### Alternative: Use the Setup Script
+
+For convenience, you can use the provided setup script:
 
 ```bash
-# Core dependencies
-pip install huggingface_hub pandas tiktoken pymupdf langchain langchain-community chromadb sentence-transformers numpy
-
-# For GPU support (CUDA)
-CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --no-cache-dir
-
-# For CPU only
-CMAKE_ARGS="-DLLAMA_CUBLAS=off" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --no-cache-dir
-
-# For Apple Silicon (Metal)
-CMAKE_ARGS="-DLLAMA_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
+./activate_env.sh
 ```
+
+This script will:
+- Activate the virtual environment
+- Check if dependencies are installed
+- Provide helpful next steps
+
+### 📋 Commands Reference
+
+For a comprehensive list of all commands, use the commands reference script:
+
+```bash
+./commands.sh           # Show interactive menu
+./commands.sh 1         # Show setup commands
+./commands.sh 9         # Show quick reference
+./commands.sh all       # Show all commands
+```
+
+Available command categories:
+- **Setup**: Initial project setup steps
+- **Environment**: Virtual environment management
+- **Jupyter**: Notebook server commands
+- **Development**: Code development utilities
+- **Git**: Version control commands
+- **Troubleshooting**: Common issue resolution
 
 ## 📖 Usage
 

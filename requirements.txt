@@ -1,0 +1,17 @@
+# Core dependencies for Medical Diagnoses RAG System
+huggingface_hub
+pandas
+tiktoken
+pymupdf
+langchain
+langchain-community
+chromadb
+sentence-transformers
+numpy
+
+# Jupyter notebook support
+jupyter
+ipykernel
+
+# Additional utilities
+tqdm
